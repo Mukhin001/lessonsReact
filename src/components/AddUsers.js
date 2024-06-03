@@ -8,8 +8,8 @@ class AddUsers extends React.Component {
     constructor(props) {
         super(props) 
         this.state = {
-            firstname: '',
-            lastname: '',
+            first_name: '',
+            last_name: '',
             bio: '',
             age: 1,
             isHappy: false,
@@ -19,8 +19,8 @@ class AddUsers extends React.Component {
     return (
         // очищаем форму методом ref
        <form ref={(form) => this.myForm = form}> 
-            <input placeholder="First Name" onChange={(e) => {this.setState({firstname: e.target.value})}}/>
-            <input placeholder="Last Name" onChange={(e) => {this.setState({lastname: e.target.value})}}/>
+            <input placeholder="First Name" onChange={(e) => {this.setState({first_name: e.target.value})}}/>
+            <input placeholder="Last Name" onChange={(e) => {this.setState({last_name: e.target.value})}}/>
             <textarea placeholder="Bio" onChange={(e) => {this.setState({bio: e.target.value})}}></textarea>
             <input placeholder="Age" onChange={(e) => {this.setState({age: e.target.value})}}/>
             <label htmlFor="isHappy">Is Happy?</label>
@@ -28,8 +28,8 @@ class AddUsers extends React.Component {
             <button type="button" onClick={() => {
                 this.myForm.reset()
                 this.userAdd = {
-                  firstname: this.state.firstname,
-                  lastname: this.state.lastname,
+                  first_name: this.state.first_name,
+                  last_name: this.state.last_name,
                   bio: this.state.bio,
                   age: this.state.age,
                   isHappy: this.state.isHappy

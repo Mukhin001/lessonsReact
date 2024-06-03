@@ -5,6 +5,9 @@ import logo from './img/logo.react.png';
 import UserList from './components/UserList';
 import Users from './components/Users';
 import AddUsers from "./components/AddUsers";
+import axios from 'axios'
+
+const baseUrl = 'https://reqres.in/api/users?page=1'; 
 
 class App extends React.Component {
     // constructor(props) {
@@ -18,26 +21,31 @@ class App extends React.Component {
     // }
     constructor(props) {
       super(props) 
+
+      axios.get(baseUrl).then((res) => {
+        this.setState({ users: res.data.data});
+      })
+
       this.state = {
           users: [
-              {
-                  id: 1,
-                  firstname: 'Ivan',
-                  lastname: 'Petrov',
-                  bio: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit sed magni assumenda iure repellendus!.',
-                  age: 30,
-                  isHappy: true,
+              // {
+              //     id: 1,
+              //     firstname: 'Ivan',
+              //     lastname: 'Petrov',
+              //     bio: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit sed magni assumenda iure repellendus!.',
+              //     age: 30,
+              //     isHappy: true,
       
-              },
-              {
-                  id: 2,
-                  firstname: 'Anastasia',
-                  lastname: 'Lastochkina',
-                  bio: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit sed magni assumenda iure repellendus!.',
-                  age: 25,
-                  isHappy: false,
+              // },
+              // {
+              //     id: 2,
+              //     firstname: 'Anastasia',
+              //     lastname: 'Lastochkina',
+              //     bio: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit sed magni assumenda iure repellendus!.',
+              //     age: 25,
+              //     isHappy: false,
       
-              },
+              // },
           ]
       }
       // работа с состояниями
